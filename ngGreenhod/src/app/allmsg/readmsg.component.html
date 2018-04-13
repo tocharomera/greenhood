@@ -1,0 +1,21 @@
+<div class="  container text-left col-lg-8 col-md-8 col-sm-8 col-centered">
+  <table class="table">
+
+    <th>Mensaje de:</th>
+
+    <tr class="">
+      <td> {{msg.emitter}}</td>
+      <td class="msg"> {{msg.message}}
+        <button class='btn pull-right btn-success pull-right' routerLink='../reply' (click)="newmsg(msg)">
+          Contestar
+        </button>
+        <button class='btn btn-danger pull-right ' routerLink='/mis_mensajes' (click)="del(msg.id)">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+      </td>
+
+  </table>
+  <button class="btn bg-primary pull-right"  routerLink="/mis_mensajes">
+    volver
+  </button>
+</div>

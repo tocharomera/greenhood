@@ -1,0 +1,258 @@
+<div id="headerMain">
+    <div class="container">
+        <div class="row">
+            <div id="logo" class="page-header col-xs-8 col-sm-5">
+                <a href="index.html">
+                    <h1>GREENHOOD</h1>
+                </a>
+                <h3 id="sublogo">La forma más sencilla de eco-nectar</h3>
+
+
+            </div>
+
+
+            <!-- prueba-boton-nav collapse -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+
+            <div id="menus">
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <nav id="menuInicio" class="col-xs-12 col-sm-7 text-right">
+
+                        <ul class="nav">
+                            <a href="index.html#comofunciona">
+                                <li role="menuitem" aria-label="Como funciona">Como Funciona</li>
+                            </a>
+                            <a href="buscarproductos.html">
+                                <li role="menuitem" aria-label="Buscar productos">Buscar Productos</li>
+                            </a>
+                            <a href="blog.html">
+                                <li role="menuitem" aria-label="Blog">Blog</li>
+                            </a>
+                            <a id="signin" onclick="UsuarioManager.signin()">
+                                <li role="menuitem" aria-label="SingIn">SignIn</li>
+                            </a>
+                            <a id="login" onclick="UsuarioManager.login()">
+                                <li id="liLog" role="menuitem" aria-label="LogIn">Login</li>
+                            </a>
+                            <a id="logout" onclick="UsuarioManager.logout()">
+                                <li id="liLogout" role="menuitem" aria-label="LogOut" style="display: none;">Logout</li>
+                            </a>
+                        </ul>
+
+                    </nav>
+
+                    <nav id="menuLogin" class="col-xs-12 col-sm-7 text-right">
+                        <ul class="nav2">
+                            <li id="userName" role="username" aria-label="nombre usuario"></li>
+                            <a href="perfil_consumidor.html">
+                                <li role="menuitem" aria-label="Mi perfil">Mi perfil</li>
+                            </a>
+                            <a href="almacen.html">
+                                <li role="menuitem" aria-label="Mi almacén">Mi Almacén</li>
+                            </a>
+                            <a href="mensajes.html">
+                                <li role="menuitem" aria-label="Mis mensajes"> Mis Mensajes</li>
+                            </a>
+                            <a href="mispedidos.html">
+                                <li role="menuitem" aria-label="Mis pedidos"> Mis Pedidos</li>
+                            </a>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="modalPlace"></div>
+
+
+
+
+
+        <!--MODAL LOGIN-->
+
+
+
+ 
+
+        <script type="x-tmpl-mustache" id="signTemplate">
+           
+                <div class="modal fade" id="modalSignin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title text-center" id="signinLabel">¿Ya eres usuario?</h4>
+                                </div>
+                                <div class="modal-body">
+            
+                                    <form id="formSignin" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4  col-lg-2">Email</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="email" name="email" id="email" data-validacion="email" required>
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4 col-lg-2">Password</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="text" name="pass" id="pass" data-validacion="pass" required>
+                                            </div>
+                                        </div>
+                                    </form>
+            
+            
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="btn-group" role="group">
+                                        <button class="btn" type="button" id="btnEnviarSign" onclick="UsuarioManager.buscaUser($('input[name=\'email\']').val());">Enviar</button>
+                                        <button class="btn" type="button" data-dismiss="modal" id="btnVolver">Volver</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+        </script>
+        <!--FIN MODAL-->
+
+
+        <script type="x-tmpl-mustache" id="logTemplate">
+                <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title text-center" id="loginLabel">Crea una nueva cuenta de usuario.</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="formLogin" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-xs-12  col-sm-4 col-lg-3">Nombre</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" value="" type="text" name="nombre" id="nombre" data-validacion="txt_r" required>
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4 col-lg-3">Apellidos</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="text" name="apellidos" data-validacion="txt_r" id="apellidos">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4 col-lg-3">Password</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="text" name="pass" data-validacion="pass" id="passN">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4 col-lg-3">Repite de password</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="text" name="passR" data-validacion="pass2" id="passR">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4 col-lg-3">Email</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="email" name="email" data-validacion="email" id="emailN">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4 col-lg-3">Pais</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="text" name="pais" data-validacion="txt_r" id="pais">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4 col-lg-3">Ciudad</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="text" name="ciudad" data-validacion="txt_r" id="ciudad">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4 col-lg-3">Calle</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="text" data-validacion="txt_r" name="calle" id="calle">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4 col-lg-3">Número</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="number" name="numero" data-validacion="txt_r" id="numero">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4 col-lg-3">Piso</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="number" name="piso" data-validacion="txt_r" id="piso">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4 col-lg-3">Letra</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="text" name="letra" data-validacion="txt_r" id="letra">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-4 col-lg-3">Código Postal</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-control" type="number" name="cp" data-validacion="txt_r" id="cp">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="form-check-label col-xs-12 col-sm-4 col-lg-3" for="productor">Productor</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-check-input" value="true" type="checkbox" name="productor" id="productor">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label class="form-check-label col-xs-12 col-sm-4 col-lg-3" for="comprador">Comprador</label>
+                                            <div class="col-xs-12 col-sm-4">
+                                                <input class="form-check-input" value="true" type="checkbox" name="comprador" id="comprador">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="btn-group" role="group">
+                                        <button class="btn" type="button" id="btnEnviarLog" onclick="UsuarioManager.newUser()">Enviar</button>
+                                        <button class="btn" type="button" data-dismiss="modal" id="btnVolverLog">Volver</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+        </script>
+        <!--FIN MODAL-->
+
+        <script src="../vendor/mustache.js"></script>
+        <script src="../js/comun.js"></script>
+        <script src="../js/header.js"></script>

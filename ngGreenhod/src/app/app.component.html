@@ -1,0 +1,13 @@
+
+<div #scrollMe (window:resize)="onResize($event)" class="container-fluid">
+  <div class="row">
+    <app-header></app-header>
+
+
+    <router-outlet></router-outlet>
+    <app-acceptance></app-acceptance>
+    <app-footer [ngClass]="{'footer': isDocBigger }" [style.top]="wheight+'px'"></app-footer>
+
+  </div>
+</div>
+

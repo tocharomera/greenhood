@@ -1,0 +1,52 @@
+<h3>Pedido en Curso</h3>
+<table class="table" ondrop="mng.drop(event)" ondragover="mng.allowDrop(event)">
+    <tr>
+        <th>Productor</th>
+        <th>Producto</th>
+        <th>Precio Und.</th>
+        <th>Cantidad</th>
+        <th>Categoria</th>
+        <th>Fecha</th>
+        <th>Precio Total</th>
+        
+        <th>                        
+            <button class="btn btn-danger btn-xs" onclick="carrito.vaciar();mng.Refresca();">
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+        </th>
+    </tr>
+    {{#filas}}
+    <tr>
+        <td>{{productor}}</td>
+        <td>{{producto}}</td>
+        <td>{{precio}}</td>
+        <td>{{cantidad}}</td>
+        <td>{{categoria}}</td>
+        <td>{{fecha}}</td>
+        <td>{{precioTotal}}</td>
+        <td>
+            <button class="btn btn-danger btn-xs" onclick="carrito.remove({{id}});mng.Refresca();">
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+        </td>
+    </tr>
+{{/filas}}
+<tr>   
+    <tr>               
+            <th>TOTAL</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{total}}</td>
+            <td>
+            <button class="btn btn-danger btn-xs" onclick="carrito.vaciar();mng.Refresca();">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+            </td>  
+        
+    </tr>
+</tr>
+
+</table>

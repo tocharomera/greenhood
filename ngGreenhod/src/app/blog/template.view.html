@@ -1,0 +1,15 @@
+
+<h3>{{vm.elemento.titulo}}</h3>
+      <img [src]="vm.elemento.foto?vm.elemento.foto:'http://ferreteriaelpuente.com.ar/wp-content/uploads/2015/08/sin-imagen.png'" class="center-block"  width="40%" itemprop="image">
+          <p class="">{{vm.elemento.texto}}</p>
+
+          <p>
+          <input type="button" value="Editar" [routerLink]="['/blog', vm.elemento.id, 'edit']">
+          <button (click)="vm.cancel()">Volver</button>
+          </p>
+
+
+
+
+
+<!-- cambiar P en funcion de nuestros (th) y los elementos con j son {{}} -->

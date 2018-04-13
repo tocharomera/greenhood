@@ -1,0 +1,90 @@
+<div role="contenido"  itemscope itemtype="http://schema.org/Person">
+  <div>
+    <!-- <div class="col-sm-10 col-sm-offset-1 "> -->
+      <h2 ><u>Mi Perfil</u></h2>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <p id="nombre">{{usuario.nombre}}</p>
+      </div>
+      <div class="form-group">
+        <label for="apellidos">Apellidos</label>
+        <p id="apellidos">{{usuario.apellidos}}</p>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <p id="email">{{usuario.email}}</p>
+      </div>
+      <div class="form-group">
+        <label for="pais">País</label>
+        <p id="pais">{{usuario.pais}}</p>
+      </div>
+      <div class="form-group">
+        <label for="ciudad">Ciudad</label>
+        <p id="ciudad">{{usuario.ciudad}}</p>
+      </div>
+      <div class="form-group">
+        <label for="cp">Código Postal</label>
+        <p id="cp">{{usuario.cp}}</p>
+      </div>
+
+      <!-- HASTA AQUI!!!! -->
+
+      <div class="datosConsu">
+        <div id="fichaConsumidor" class="datos">
+          <!-- aqui estaba mi listado -->
+          <!-- ahora es la template que está abajo del todo -->
+        </div>
+        <div>
+          <button type="button" class="btn btn-default" (click)="editUser()">Editar</button>
+          <button type="button" class="btn btn-default" (click)="alloweditpass()">Cambiar contraseña</button>
+          <button type="button" class="btn btn-default">Eliminar cuenta</button>
+        </div>
+      </div>
+      <div *ngIf="test" class="form-group">
+        <label class="col-xs-12 col-sm-4 col-lg-3">Password</label>
+        <div class="col-xs-12 col-sm-4">
+          <form id="allowpass" class="form-horizontal ">
+            <input class="form-control" [(ngModel)]='testpass' type="password" name="pass" data-validacion="pass" id="passN">
+
+            <button type="button" class="boton" (click)="alloweditpass()">Confirmar contraseña</button>
+            <button type="button" class="boton" (click)="cancelaPass()">Cancelar</button>
+          </form>
+        </div>
+      </div>
+      <div *ngIf="editpass" class="container-fluid">
+        <div class="row">
+          <form id="editPass" class="form-horizontal ">
+            <div class="form-group">
+              <label class="col-xs-12 col-sm-4 col-lg-3">Password</label>
+              <div class="col-xs-12 col-sm-4">
+                <input class="form-control" [(ngModel)]='newpass' type="password" name="newpassN">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-12 col-sm-4 col-lg-3">Repite de password</label>
+              <div class="col-xs-12 col-sm-4">
+                <input class="form-control" (keyup)="testmatch()" [(ngModel)]='newpassR' type="password" name="newpassR">
+                <span *ngIf="passmatch " class="text-danger">Las contraseñas no coinciden</span>
+
+              </div>
+            </div>
+
+            <button type="button" class="boton" (click)="editPass()">Crear nueva contraseña</button>
+          </form>
+        </div>
+      </div>
+    <!-- </div> -->
+  </div>
+</div>
+<script id="tmplListadoProducto" type="x-tmpl-mustache">
+  {{#filas}}
+  <li class="list-group-item" draggable="true" ondragstart="mng.drag(event, {{id}})">
+      {{Producto}}
+      <button class="btn btn-success btn-xs pull-right" onclick="mng.Refresca(carrito.add({{id}}, '{{nonmbre}}', '{{Producto}}', {{Precio}}, {{Cantidad}}, '{{Categoria}}', '{{Fecha}}'));">
+          <span class="glyphicon glyphicon-plus"></span>
+      </button>
+  </li>
+  {{/filas}}
+</script>
+<script id="tmplListadoCarrito" type="x-tmpl-mustache">
+</script>

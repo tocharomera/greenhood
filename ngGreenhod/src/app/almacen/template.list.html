@@ -1,0 +1,49 @@
+<table class="table">
+  <tr>
+    <th>Producto</th>
+    <th>Categoría</th>
+    <th>Cantidad</th>
+    <th>Fecha</th>
+    <th>Precio</th>
+    <th>Nºlote </th>
+    <th><button class="btn btn-success btn-xs pull-right" (click)="vm.add()"><span class="glyphicon glyphicon-plus">Añadir</span></button> </th>
+
+
+  </tr>
+  <tr *ngFor="let item of vm.Listado">
+    <td>{{item.Producto}}</td>
+      <!-- <button class="btn btn-link" (click)="vm.view(item.id)">{{item.Producto}} </button> -->
+
+    <td>
+      {{item.Categoria}}
+    </td>
+    <td>
+      {{item.Cantidad}}
+    </td>
+    <td>
+     {{item.Fecha}}
+    </td>
+    <td>
+     {{item.Precio}}
+    </td>
+    <td>
+      {{item.id}}
+    </td>
+
+
+
+    <td>
+        <button class="btn btn-danger btn-xs" (click)="vm.edit(item.id)">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+<button class="btn btn-danger btn-xs" (click)="vm.remove(item.id)">
+            <span class="glyphicon glyphicon-trash"></span>
+        </button>
+
+    </td>
+  </tr>
+</table>
+
+
+
+

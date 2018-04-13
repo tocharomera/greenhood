@@ -1,0 +1,104 @@
+<br>
+<div id="buscar" class="container-fluid">
+
+  <div class="container col-centered col-lg-11 col-md-11 col-sm-11">
+    <div class="row ">
+      <div id="c-mapa" class="col-lg-6 col-md-6 col-sm-5  col-xs-12">
+        <div class=" embed-responsive embed-responsive-16by9" id="mapa">
+          <div class="embed-responsive-item" width="100%" leaflet (leafletMapReady)="onMapReady($event)" [leafletOptions]="options">
+          </div>
+        </div>
+      </div>
+
+      <div class="jumbotron col-lg-5  col-xs-12 col-md-6  col-sm-5" id="filtro2">
+        <h2 class="ecof ">ECOfiltra los productos que estés buscando</h2>
+
+        <form class="formulario form-horizontal" id="filtro_home" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+          <div class="form-group col-lg-11 col-md-11 col-sm-11">
+            <input type="text" class=" form-control " name="busqueda" ngModel #busqueda="ngModel" placeholder="¿Qué producto buscas?">
+          </div>
+          <div id="checkboxes" class="container   ">
+
+            <div class="form-group vert-offset-top-4 col-lg-8 col-md-8 col-sm-10 ">
+
+              <div class="checkbox checkbox-primary checkbox-primary col-lg-6 col-md-6 col-sm-6 ">
+
+                <input type="checkbox" class="styled " (click)=' vbool(); categoria(); ' id="v" value='verduras' name="verdura">
+                <label for="v">
+                  Verduras
+                </label>
+              </div>
+            </div>
+            <div class="form-group  col-lg-8 col-md-8 col-sm-10">
+              <div class="checkbox checkbox-primary col-lg-6 col-md-6 col-sm-6">
+                <input type="checkbox" (click)='fbool(); categoria(); ' class="styled" id="f" value='frutas' name="fruta">
+                <label for="f">
+                  Frutas
+                </label>
+              </div>
+            </div>
+          </div>
+          <div [hidden]="!productos" id="results" class="container-fluid">
+            <div class="table-responsive">
+              <table class="table table-condensed">
+                <tr class="info">
+                  <th>Producto</th>
+                  <th>Cantidad/kg</th>
+                  <th>Categoria</th>
+                  <th>Fecha</th>
+                  <th>Precio €/kg</th>
+                </tr>
+                <tr *ngFor="let producto of productos">
+                  <a (click)="navigate(producto)">{{producto.Producto}}
+                  </a>
+                  <td>{{producto.Cantidad}}</td>
+                  <td>{{producto.Categoria}}</td>
+                  <td>{{producto.Fecha}}</td>
+                  <td>{{producto.Categoria}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div id="cerca" class="container col-lg-6 col-md-8 col-sm-8" style="display: none">
+            <p>Cerca de tí</p>
+            <select class="form-control input-md " name="distancia">
+              <option value="10" selected>10 km</option>
+              <option value="20" selected>20 km</option>
+              <option value="30" selected>30 km</option>
+              <option value="40" selected>40 km</option>
+              <option value="50" selected>50 km</option>
+            </select>
+          </div>
+          <div>
+            <br>
+            <input class="btn btn-primary" type="submit" value="Filtrar">
+            <!-- <input type='button' class="btn btn-primary" value='Avanzado' onclick="more()"></input> -->
+          </div>
+
+        </form>
+        <div class="container-fluid">
+          <div id="result" class="center-block">
+
+          </div>
+        </div>
+        <!-- <div id="result" class="container-fluid col-xs-12 col-md-6"></div> -->
+      </div>
+    </div>
+  </div>
+  <div class="row col-xs-12" id="c-calendario_home">
+
+
+    <h2 class="text-center">
+      <small>GREENHOOD te ayudará de forma rápida y eficaz en los resultados de búsqueda de frutas y verduras proporcionandote herramientas
+        como la localización en mapa,para saber que productores se ubican proximos a ti.
+      </small>
+    </h2>
+
+    <div class="container-fluid" id="calendario">
+      <div id="date-popover-content" class="popover-content"></div>
+      <div class="container-fluid ">
+        <div id="calendar" class="embed-responsive-item"></div>
+      </div>
+    </div>
+  </div>
+</div>

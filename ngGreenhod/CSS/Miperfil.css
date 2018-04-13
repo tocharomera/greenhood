@@ -1,0 +1,39 @@
+.contenido {
+  margin-top: 60px;
+  margin-left: 10%;
+  overflow: auto;
+}
+#contenido1 {
+  width: 30%;
+  float: left;
+  margin-left: 10%;
+}
+#contenido2 {
+  width: 40%;
+  float: right;
+  margin-right: 20%;
+  margin-top: 2%;
+}
+#datos {
+  width: 30%;
+  overflow: auto;
+}
+#datos ul {
+  list-style: none;
+  padding: 11;
+}
+#datos li {
+  padding-top: 30px;
+  text-decoration: underline;
+}
+#siguiendo {
+  margin-top: 20%;
+  text-align: center;
+}
+.muro {
+  margin-top: 20%;
+  text-align: center;
+}
+#botones {
+  width: 85%;
+}

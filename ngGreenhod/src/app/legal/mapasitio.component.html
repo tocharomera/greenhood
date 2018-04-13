@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="row">
+    <ul class="col-lg-8 col-md-8 col-sm-8 col-centered">
+      <h2>Mapa del Sitio</h2>
+      <li>
+        <h3>
+          <a routerLink="">Como funciona</a>
+        </h3>
+        <br>
+      </li>
+      <li>
+        <h3>
+          <a routerLink="/buscar_productos">Busqueda de productos</a>
+        </h3>
+        <br>
+      </li>
+      <li>
+        <h3>
+          <a routerLink="/blog">Blog</a>
+        </h3>
+        <br>
+      </li>
+      <li>
+        <h3>
+          <a routerLink="/mi_perfil">Perfil Consumidor</a>
+        </h3>
+        <ul>
+          <li *ngIf="logged">
+            <a routerLink="/mis_mensajes">Mis mensajes</a>
+          </li>
+
+        </ul>
+        <br>
+      </li>
+      <li *ngIf="logged">
+        <h3>
+          <a routerLink="/perfilproductor">Perfil Productor</a>
+        </h3>
+        <ul>
+          <li *ngIf="logged">
+            <a routerLink="/perfilproductor/almacen">Mi almacen</a>
+          </li>
+
+          <li *ngIf="logged">
+            <a routerLink="/perfilproductor/mis_mensajes">Mis mensajes</a>
+          </li>
+          <li *ngIf="logged">
+            <a routerLink="/perfilproductor/pedidos">Mis pedidos</a>
+          </li>
+        </ul>
+        <br>
+      </li>
+      <li>
+        <h3>
+          <a routerLink="/legal">Avisos legales</a>
+        </h3>
+        <br>
+      </li>
+      <li>
+        <h3>
+          <a routerLink="/legal/cookies">Politica de cookies</a>
+        </h3>
+        <br>
+      </li>
+    </ul>
+  </div>
+</div>

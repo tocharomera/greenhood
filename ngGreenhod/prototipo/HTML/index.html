@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../img/Favicon.png" />
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../vendor/css/zabuto_calendar.min.css">
+    <link rel="stylesheet" href="../vendor/css/awesome-bootstrap-checkbox.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../vendor/css/fontawesome.min.css">
+    <script type="text/javascript" src="../vendor/mustache.js"></script>
+    <title>GREENHOOD</title>
+</head>
+
+<body style=" height: 200%;">
+
+    <div id="header"></div>
+
+    <div class="container-fluid" role="main" aria-label="contenido">
+
+        <div id="c-filtro_home" class="container-fluid" role="filter" aria-label="filtro">
+            <div class="row">
+                <div id="filtro" class="container-fluid col-lg-offset-0">
+                    <div class="jumbotron col-lg-6 col-md-6 col-sm-6 vert-offset-top-6">
+                        <h2 class="text-success">ECOfiltra los productos que estés buscando</h2>
+                        <form class="formulario form-horizontal" role="form" id="filtro_index">
+                            <div class="container col-lg-8 col-md-8 col-sm-11">
+                                <input type="text" class="form-control" id="busqueda" name="busqueda" placeholder="¿Qué producto buscas?">
+                            </div>
+                  
+                            <div class="container botones_filtro vert-offset-top-7">
+                                <!-- <input class="btn btn-primary" type="submit" value="Filtrar" href="buscarproductos.html"> -->
+                                <button id="template" role="buscar productos" type="btn-primary" class="btn btn-primary">Filtrar</button>
+                                <!-- <button class="btn btn-primary">Avanzado</button> -->
+                            </div>
+                        </form>
+                    </div>
+                    <div id="funciona" class="container  col-lg-6 col-sm-6 col-xs-12  ">
+                        <h2>¿Cómo funciona?</h2>
+                        <br>
+                        <div class="text-justify">
+                            GREENHOOD, te ayudará de forma rápida y eficaz en los resultados de búsqueda de frutas y verduras proporcionandote herramientas
+                            como la localización en mapa,para saber que productores se ubican proximos a ti.
+                            <div id="efec">
+                                <div id="flip" class="btn btn-link">Leer más...</div>
+                                <div id="panel">Además de una búsqueda con filtros para detallar tu necesidad y si tienes ganas de saber
+                                    que frutas o verduras están en temporada, en GREENHOOD a través de su calendario de temporada
+                                    podrás enterarte de que productos están listos para su compra. En GREENHOOD promovemos
+                                    la ecologia mediante está plataforma, ayudando a quien produce frutas o verduras y pueda
+                                    anunciarlas aquí para otros, y no solo eso, si no también compartir el proceso, cuidado
+                                    y mantenimiento del producto. Por otro lado si en GREENHOOD, no cumples la función de
+                                    productor, como consumidor, aparte de comprar, puedes seguir a tus productores favoritos
+                                    y ver mas de cerca todo el trabajo que realizan para ofrecer un producto limpio y ecologico.
+                                    El equipo de GREENHOOD te desea una buena ECO-experiencia y ECO-disfrutalo.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!--//BLOQUE COOKIES-->
+                <div id="" class="container navbar-fixed-bottom   col-lg-5 col-md-5 col-sm-5">
+                    <a itemprop="" href="cookies.html">Pol&iacute;tica de cookies</a>
+                    <a itemprop="publishingPrinciples" href="legalizacion.html">Aviso legal</a>
+                    <a href="mapasitio.html">Accesibilidad</a>
+                    <span id="copyright" class=" " itemscope itemtype="http://schema.org/Organization">© Greenhood 2018</span>
+                </div>
+                <div id="" class="navbar barraaceptacion navbar-fixed-bottom text-center bg-primary">
+                    <div class="inner">
+                        Solicitamos su permiso para obtener datos estadísticos de su navegación en esta web, en cumplimiento del Real Decreto-ley
+                        13/2012. Si continúa navegando consideramos que acepta el uso de cookies.
+                        <br>
+                        <button class="button " href="javascript:void(0);" onclick="PonerCookie();">OK</button>
+                        <input type="button" onclick='window.location.href="cookies.html"' target="_blank" class="button btn-warning info" value="Más información">
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/plugins/zabuto_calendar.min.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/busqueda.js"></script>
+    <script id="template">
+        $('#filtro_index').on('submit', function (e) {
+            e.preventDefault();
+            var datos = $('#filtro_index').serializeArray();
+            var filtersearch = new Object();
+            datos.forEach(function (item) {
+                filtersearch[item.name] = item.value;
+            });
+            window.location.href = "buscarproductos.html?busca=" + JSON.stringify(filtersearch);
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#header').load("headerNew.html");
+        });
+        function PonerCookie() {
+         
+            $('.barraaceptacion').hide();
+        }
+    </script>
+
+
+</body>
+
+</html>

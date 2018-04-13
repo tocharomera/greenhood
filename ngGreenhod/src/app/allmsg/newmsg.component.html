@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class=" container text-left col-lg-8 col-md-8 col-sm-8 col-centered">
+    <table class="table">
+
+      <th>Nuevo Mensaje</th>
+
+      <tr class="">
+        <tr>
+          <td class="text-right ">Para:</td>
+          <td >
+            <input id="newr" class="form-control  " [(ngModel)]="newr" (keyup)="searchDelay($event)" [value] #receiver="ngModel" type="text" required>
+            <div [hidden]="!suggested || suggested.length === 0" class="">
+              <div class="container">
+                <div class="row">
+                  <table class="table nonfluid">
+                    <tr *ngFor="let usr of suggested">
+                      <td>
+                        <a (click)="newr = usr.email; suggested = []">{{usr.nombre}} {{usr.apellidos}} </a>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <span [hidden]="!receiver.errors?.required || receiver.pristine" class="text-danger">Es obligatorio</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-right "> De: {{emitter}}</td>
+          <td>
+            <form #miForm="ngForm">
+              <div class="form-group form-group-lg">
+
+                <label class="control-label" for="id">Mensaje:</label>
+                <textarea class="form-control span6" rows="3" type="string" name="msg" id="" [(ngModel)]="mensaje">
+                </textarea>
+              </div>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button class='btn btn-success' (click)="enviar(); ">
+              Enviar
+            </button>
+            <button class='btn btn-danger ' (click)="backClicked()">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+          </td>
+        </tr>
+    </table>
+    <button class="btn bg-primary pull-right" routerLink="/mis_mensajes">
+      volver
+    </button>
+  </div>

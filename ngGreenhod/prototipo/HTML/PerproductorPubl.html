@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../img/Favicon.png" />
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap-theme.min.css">
+    <title>Perfil Productor</title>
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <div class="container-fluid" itemscope itemtype="http://schema.org/Person">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="container-fluid text-center">
+
+                    <a href="Perproductor.html" role="perfilprivado">
+                        <h2>Mario Lucena</h2>
+                    </a>
+                </div>
+                <div class="imagenO center-block">
+                    <div class="container-fluid  ">
+                        <img src="../img/productor.jpg" alt="foto de perfil" class="img-thumbnail">
+                    </div>
+                </div>
+                <div class="container-fluid text-center">
+                    <form id="estrellasval" action="/action_page.php">
+
+                        <input type="radio" name="estrellas" value="1" checked>1
+
+                        <input type="radio" name="estrellas" value="2"> 2
+
+                        <input type="radio" name="estrellas" value="3"> 3
+
+                        <input type="radio" name="estrellas" value="4" checked>4
+
+                        <input type="radio" name="estrellas" value="5">5
+
+                    </form>
+                </div>
+                <div class="container-fluid text-center">
+                    <p itemprop="aggregateRating"> Seguidores:129</p>
+                    <button class="boton">Seguir</button>
+                    <button class="boton">Enviar mensaje</button>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-md-8" id="listadoCarrito">
+            </div>
+        </div>
+        <div id="tablaAlmacen">
+            <button class="btn btn-success btn-xs pull-right" onclick="mng.Refresca(carrito.add({{id}}, '{{nombre}}','{{Producto}}', {{Precio}}, {{Cantidad}}, '{{Categoria}}', '{{Fecha}}'));">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+
+    </div>
+
+
+    <footer class="footer navbar-fixed-bottom">
+        <div class="container-fluid navbar-btn">
+            <span id="copyright" itemscope itemtype="http://schema.org/Organization">© Greenhood 2018</span>
+            <a itemprop="" href="cookies.html">Pol&iacute;tica de cookies</a>
+            <a itemprop="publishingPrinciples" href="legalizacion.html">Aviso legal</a>
+            <a href="mapasitio.html">Accesibilidad</a>
+        </div>
+    </footer>
+    <script id="tmplListaProductos" type="plantilla">
+        <form>
+            <table class="table table-striped table-hover">
+                <tbody>
+                    <tr class="info">
+                        <th>Producto</th>
+                        <th>Categoria</th>
+                        <th>Cantidad/kg</th>
+                        <th>Fecha</th>
+                        <th>Precio €/kg</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" class="btn btn-link" value="{{Producto}}" onclick="ver({{id}});">
+                        </td>
+                        <td>
+                            <input type="button" class="btn btn-link" value="frutas" onclick="ver({{id}});">
+                        </td>
+                        <td>
+                            <input type="button" class="btn btn-link" value="2" onclick="ver({{id}});">
+                        </td>
+                        <td>
+                            <input type="button" class="btn btn-link" value="2018-03-07" onclick="ver({{id}});">
+                        </td>
+                        <td>
+                            <input type="button" class="btn btn-link" value="1.02" onclick="ver({{id}});">
+                        </td>
+                        <td>
+                            <form>
+                                <input type="number" id="txtCantidad{id}" value="0" min="1" max="2">
+                                <button type="button" class="btn btn-info" onclick="mng.addProducto({{id}}, 'Mario Lucena', '{{Producto}}', 1.02, '#txtCantidad{{id}}', 'frutas', '2018-03-07');">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+            
+    </script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/mustache.js"></script>
+    <script src="../js/comun.js"></script>
+    <script src="../js/carrito.js"></script>
+    <script src="../js/perProPu.js"></script>
+    <script>
+        var mng = new CarritoManager();
+        $(document).ready(function () {
+            $('#header').load("headerNew.html");
+            mng.Refresca();
+        });
+    </script>
+</body>
+
+</html>

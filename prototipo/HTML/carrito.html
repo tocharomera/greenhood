@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <style>
+        #trabajandoAJAX {
+            display: none;
+            position: fixed;
+            left: 45%;
+            top: 45%;
+        }
+    </style>
+    <link rel="stylesheet" href="vendorr/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="menuPrincipal"></div>
+    <!-- PRODUCTOS OFERTA -->
+    <div class="container-fluid">
+        <h1>Eco-Carrito</h1>
+        <img id="trabajandoAJAX" src="/ajaxloading.gif" alt="Cargando ...">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-push-6" id="listadoCarrito">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-sm-pull-6" id="listadoProducto">
+                <h3>Productos</h3>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Filtrar por..." id="txtFiltro">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" for="txtFiltro" id="btnLimpiaFiltro">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </span>
+                </div>              
+                <!-- /input-group -->
+                <ul id="filtroResult" class="list-group">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- FIN / PRODUCTOS OFERTA -->
+    <div id="PiePrincipal"></div>
+    <script src="vendorr/jquery/jquery.js"></script>
+    <script src="vendorr/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendorr/mustache.js"></script>
+    <script src="js/carrito.js"></script>
+    <!-- MIS PEDIDOS -->
+    <script id="tmplListadoProducto" type="x-tmpl-mustache">
+        {{#filas}}
+        <li class="list-group-item" draggable="true" ondragstart="mng.drag(event, {{id}})">
+            {{Producto}}
+            <button class="btn btn-success btn-xs pull-right" onclick="mng.Refresca(carrito.add({{id}}, '{{Producto}}', {{Precio}}, {{Cantidad}}, '{{Categoria}}', '{{Fecha}}'));">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </li>
+        {{/filas}}
+    </script>
+    <script id="tmplListadoCarrito" type="x-tmpl-mustache">
+            <h3>Mis Pedidos</h3>
+            <table class="table" ondrop="mng.drop(event)" ondragover="mng.allowDrop(event)">
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio Und.</th>
+                    <th>Cantidad</th>
+                    <th>Categoria</th>
+                    <th>Fecha</th>
+                    <th>Precio Total</th>
+                    
+                    <th>                        
+                        <button class="btn btn-danger btn-xs" onclick="carrito.vaciar();mng.Refresca();">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </th>
+                </tr>
+                {{#filas}}
+                <tr>
+                    <td>{{producto}}</td>
+                    <td>{{precio}}</td>
+                    <td>{{cantidad}}</td>
+                    <td>{{categoria}}</td>
+                    <td>{{fecha}}</td>
+                    <td>{{precioTotal}}</td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" onclick="carrito.remove({{id}});mng.Refresca();">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+            {{/filas}}
+            <tr>   
+                <tr>               
+                        <th>TOTAL</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{total}}</td>
+                        <td>
+                        <button class="btn btn-danger btn-xs" onclick="carrito.vaciar();mng.Refresca();">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                        </td>  
+                    
+                </tr>
+            </tr>
+
+            </table>
+    </script>
+    <!-- FIN / MIS PEDIDOS -->
+    <!-- PLANTILLA FILTROS -->
+    <script>
+        var mng = new CarritoManager();
+        var delay = null;
+
+        $(document).ready(function () {
+            mng.ListarProductos();
+            mng.Refresca();
+            $('#txtFiltro').keyup(function (ev) {
+                if (delay)
+                    clearTimeout(delay);
+                var filtro = ev.target.value;
+                delay = setTimeout(function () {
+                    mng.Filtra(ev.target.value);
+                    delay = null;
+                }, 500);
+            });
+            $('#btnLimpiaFiltro').click(function (ev) {
+                $('#txtFiltro').val("");
+                mng.Filtra("");
+            });
+            $(document)
+                .ajaxStart(function () {
+                    $('#trabajandoAJAX').show();
+                }).ajaxStop(function () {
+                    $('#trabajandoAJAX').hide();
+                });
+        });
+    </script>
+    <!--  FIN / PLANTILLA FILTROS -->
+
+</body>
+
+</html>

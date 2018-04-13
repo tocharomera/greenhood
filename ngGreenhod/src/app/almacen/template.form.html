@@ -1,0 +1,57 @@
+<form #miForm="ngForm" >
+  <!-- <div class="form-group" >
+    <label class="control-label" for="id">Código:</label>
+    <ng-container *ngIf="vm.Modo=='add'">
+      <input class="form-control" type="number" name="id" id="id" [(ngModel)]="vm.Elemento.id" #id="ngModel" required min="1">
+      <span [hidden]="!id?.errors?.required || miForm.pristine" class="text-danger">Es obligatorio</span>
+    </ng-container>
+    <ng-container *ngIf="vm.Modo!='add'">
+      {{vm.Elemento.id}}
+    </ng-container>
+  </div> -->
+  <div class="form-group" [class.has-error]="producto?.invalid && !producto.pristine">
+    <label class="control-label" for="producto">Producto:</label>
+    <input class="form-control" type="text" name="producto" id="producto" [(ngModel)]="vm.Elemento.Producto" #producto="ngModel"
+      required minlength="2" maxlength="10">
+    <span [hidden]="!producto?.errors?.required || producto.pristine" class="text-danger">Es obligatorio</span>
+
+  </div>
+  <div class="form-group" [class.has-error]="categoria?.invalid ">
+    <label class="control-label" for="categoria">Categoria:</label>
+    <select class="form-control" type="text" name="Categoria" id="Categoria" [(ngModel)]="vm.Elemento.Categoria" #categoria="ngModel">
+      <option value="frutas">frutas</option>
+      <option value="verduras">verduras</option>
+      <option value="conservas">conservas</option>
+      <option value="cereales">cereales</option>
+
+    </select>
+  </div>
+
+  <!-- º -->
+  <div class="form-group" [class.has-error]="cantidad?.invalid && !cantidad.pristine">
+    <label class="control-label" for="cantidad">Cantidad:</label>
+    <input class="form-control" type="number" name="cantidad" id="cantidad" [(ngModel)]="vm.Elemento.Cantidad" #cantidad="ngModel"
+      required>
+    <span [hidden]="!cantidad?.errors?.required || miForm.pristine" class="text-danger">Es obligatorio</span>
+  </div>
+  <div class="form-group" [class.has-error]="fecha?.invalid">
+    <label class="control-label" for="Fecha">Fecha:</label>
+    <input class="form-control" type="date" name="Fecha" id="Fecha" [(ngModel)]="vm.Elemento.Fecha" #fecha="ngModel">
+
+  </div>
+  <div class="form-group" [class.has-error]="precio?.invalid && !precio.pristine">
+    <label class="control-label" for="Precio">Precio:</label>
+    <input class="form-control" type="number" name="Precio" id="precio" [(ngModel)]="vm.Elemento.Precio" #precio="ngModel" required>
+
+    <span [hidden]="!precio.errors?.required || miForm.pristine" class="text-danger">Indica el precio de tu producto </span>
+  </div>
+  <!-- <div class="form-group" [class.has-error]="id.invalid && !id.pristine" >
+    <label class="control-label" for="id">id:</label>
+    <input class="form-control" type="number" name="id" id="id" [(ngModel)]="nuevoid" #id="ngModel" minlength="2" maxlength="10">
+
+  </div> -->
+  <div class="form-group">
+    <button [disabled]="miForm.invalid" type="button" class="btn btn-default" (click)="vm.send()">Enviar</button>
+    <button type="button" class="btn btn-default" (click)="vm.cancel()">Volver</button>
+  </div>
+</form>

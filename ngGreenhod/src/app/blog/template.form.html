@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <form #miForm="ngForm" class="col-lg-8 col-md-8 col-sm-8 col-centered">
+      <!-- cambiar en nombre, apelllidos por las clases de nuestro json -->
+      <div class="form-group">
+        <label class="control-label" for="titulo">Título:</label>
+        <input class="form-control" type="text" name="titulo" id="titulo" [(ngModel)]="vm.Elemento.titulo" #titulo="ngModel" minlength="5"
+          maxlength="50" upperCase required>
+        <span [hidden]="!titulo?.errors?.minlength  && !titulo?.errors?.maxlength || titulo.pristine" class="text-danger">Debe tener entre 5 y 50 letras.</span>
+        <span [hidden]="!titulo?.errors?.upperCase || titulo.pristine" class="text-danger">Debe ir en mayúsculas.</span>
+        <span [hidden]="!titulo.errors?.required || titulo.pristine" class="text-danger">Es obligatorio</span>
+      </div>
+
+      <label class="control-label" for="resumen">Resumen:</label>
+      <div class="form-group">
+        <textarea rows="4" cols="78" type="text" name="resumen" id="resumen" [(ngModel)]="vm.Elemento.resumen" #resumen="ngModel"
+          minlength="250" maxlength="300">
+    </textarea>
+        <span [hidden]="!resumen?.errors?.minlength  && !resumen?.errors?.maxlength || titulo.pristine" class="text-danger">Debe tener entre 250 y 300 letras.</span>
+        <!-- <input class="form-control" type="text" name="resumen" id="resumen"
+        [(ngModel)]="vm.Elemento.resumen" #resumen="ngModel"
+        minlength="2" maxlength="140" > -->
+        <!-- validación pagina web Regex tester -->
+      </div>
+      <label class="control-label" for="texto">Texto:</label>
+      <div class="form-group">
+        <textarea rows="8" cols="80" class="form-control" type="text" name="nombre" id="texto" [(ngModel)]="vm.Elemento.texto" #texto="ngModel"></textarea>
+        <span [hidden]="!texto.errors?.required || titulo.pristine" class="text-danger">Es obligatorio</span>
+        <!-- <input class="form-control" type="text" name="nombre" id="texto"
+          [(ngModel)]="vm.Elemento.texto" #texto="ngModel"
+          required minlength="2"> -->
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="foto">Foto:</label>
+        <input class="form-control" type="url" name="foto" id="foto" [(ngModel)]="vm.Elemento.foto" #foto="ngModel" required>
+        <span [hidden]="!foto.errors?.required || titulo.pristine" class="text-danger">Inserta aquí una URL</span>
+      </div>
+      <div class="form-group">
+        <button [disabled]="miForm.invalid" type="button" class="btn btn-default" (click)="vm.send()">Enviar</button>
+        <button type="button" class="btn btn-default" (click)="vm.cancel()">Volver</button>
+      </div>
+    </form>
+  </div>
+</div>

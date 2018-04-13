@@ -1,0 +1,8 @@
+<div class="list-grup">
+    <ul class="list-unstyled">
+      <span>{{auth.Nombre}}</span>
+      <ng-container *ngFor="let item of menu2">
+        <a *ngIf="!item.soloProductor || auth.IsProductor" [routerLink]="item.url"><li>{{item.nombre}}</li></a>
+      </ng-container>
+    </ul>
+    </div>

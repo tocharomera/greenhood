@@ -1,0 +1,28 @@
+ul {
+  list-style-type: none;
+}
+button {
+  filter: opacity(0.7) !important;
+  font-weight: bold;
+}
+button:hover {
+  filter: opacity(1) !important;
+}
+.new {
+  border-color: #7fc5ff;
+  color: #03355e;
+  background-color: transparent;
+}
+.del {
+  border-color: darkred;
+  color: darkred;
+  background-color: transparent ;
+}
+.read {
+  border-color: darkolivegreen;
+  color: #3b5a06;
+  background-color: transparent ;
+}
+a {
+  border-color: yellow;
+}

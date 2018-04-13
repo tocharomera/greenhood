@@ -1,0 +1,28 @@
+.nav li {
+  display: inline-block;
+  padding: 1%;
+}
+#menus {
+  padding-top: 7%;
+}
+.icon-bar {
+  background-color: black !important;
+}
+#logo {
+  padding-bottom: 0px !important;
+}
+@media (max-width: 767px) {
+  #logo {
+    margin: 20px 0 20px;
+  }
+}
+@media (max-width: 625px) {
+  #logo {
+    margin: 10px 0 20px;
+  }
+}
+@media (max-width: 318px) {
+  #logo {
+    margin: 0 0 20px;
+  }
+}

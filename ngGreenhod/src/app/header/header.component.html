@@ -1,0 +1,35 @@
+<div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class=" container pull-left" id="logo">
+        <a [routerLink]="''">
+          <h1 id="tituloIndex" class=" ">GREENHOOD</h1>
+        </a>
+        <h3 class="" id="sublogo">La forma más sencilla de eco-nectar</h3>
+      </div>
+
+      <!-- boton-nav collapse -->
+      <div id="navcollapsed" class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div id="menus" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <div class="text-right">
+            <app-menu1></app-menu1>
+          </div>
+          <div class="text-right" *ngIf="auth.IsAuthenticated">
+            <app-menu2></app-menu2>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>

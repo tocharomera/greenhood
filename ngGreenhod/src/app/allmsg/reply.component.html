@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <form #miForm="ngForm">
+
+    <table class="table">
+
+      <th>Nuevo Mensaje</th>
+      <tr>
+        <td> De: {{usr.idUsuario}}</td>
+        <td>Mensaje para: {{newmsg.emitter}}</td>
+
+
+      </tr>
+      <tr class="form-group">
+        <td>
+          <label class="control-label" for="id">Mensaje:</label>
+        </td>
+        <td>
+          <textarea class="form-control span6" rows="3" type="string" name="msg" id="" [(ngModel)]="mensaje"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button class='btn btn-success' (click)="contestar()" routerLink='/mis_mensajes'>
+            Enviar
+          </button>
+
+          <button class='btn btn-danger ' (click)="backClicked()">
+            Cancelar
+          </button>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <button class='btn btn-info pull-right ' (click)="backClicked()">
+    volver
+  </button>
+</div>

@@ -1,0 +1,7 @@
+<div class="container-fluid">
+  <div class="row">
+    <input type="number" name="cantidadPedida" id="cantidadPedida" [max]="producto.Cantidad" [(ngModel)]="cantidadPedida">
+    <button type="button" aria-label="add to car" (click)="generaPedido()"><span aria-hidden="true" class="glyphicon glyphicon-shopping-cart" ></span></button>
+    <span [hidden]="errMsg===''">{{errMsg}}</span>
+  </div>
+</div>

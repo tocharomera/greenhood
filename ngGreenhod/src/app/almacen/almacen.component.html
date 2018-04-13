@@ -1,0 +1,46 @@
+<div class="container-fluid">
+
+<div id="completo" class="col-xs-12 col-md-7 col-centered">
+  <div class="row">
+    <div class="almacenColo">
+
+      <h1>
+        <u> Almacén</u>
+      </h1>
+      <ng-container [ngSwitch]="vm.Modo">
+        <app-almacen-add *ngSwitchCase="'add'"></app-almacen-add>
+        <app-almacen-edit *ngSwitchCase="'edit'"></app-almacen-edit>
+        <app-almacen-view *ngSwitchCase="'view'"></app-almacen-view>
+        <app-almacen-list *ngSwitchDefault></app-almacen-list>
+      </ng-container>
+    </div>
+  </div>
+
+
+
+<div class="row">
+
+  <div class="almacenColo">
+
+    <h2>
+      <u>Pedidos A Enviar</u>
+    </h2>
+    <app-almacen-pedidos></app-almacen-pedidos>
+
+  </div>
+</div>
+
+
+
+<div class="row">
+
+  <div class="almacenColo">
+
+    <h3>
+      <u>Pedidos Servidos</u>
+    </h3>
+    <app-almacen-servidos></app-almacen-servidos>
+  </div>
+</div>
+</div>
+</div>

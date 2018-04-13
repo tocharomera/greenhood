@@ -1,0 +1,17 @@
+.btn-success:hover,
+.btn-success:focus {
+  background-position: 0 -15px;
+}
+div.dotted {
+  border-radius: 12px;
+}
+#panel,
+#flip {
+  padding: 5px;
+}
+#panel {
+  display: none;
+}
+#efec {
+  width: 100%;
+}

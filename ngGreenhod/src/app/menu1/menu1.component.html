@@ -1,0 +1,10 @@
+<div class="list-grup">
+    <ul class="list-unstyled">
+      <ng-container *ngFor="let item of menu">
+        <a [routerLink]="item.url"><li>{{item.nombre}}</li></a>
+      </ng-container>
+      <a *ngIf='!auth.IsAuthenticated' [routerLink]="'login'"><li>LogIn</li></a>
+      <a *ngIf='auth.IsAuthenticated' [routerLink]="''" (click)="auth.logout()"><li>LogOut</li></a>
+      <a *ngIf='!auth.IsAuthenticated' [routerLink]="'nuevo_usuario'"><li>Registro</li></a>
+      </ul>
+    </div>

@@ -1,0 +1,9 @@
+<div *ngIf="!clicked" id="" class="navbar barraaceptacion navbar-fixed-bottom text-center bg-primary">
+    <div class="inner">
+        Solicitamos su permiso para obtener datos estadísticos de su navegación en esta web, en cumplimiento del Real Decreto-ley
+        13/2012. Si continúa navegando consideramos que acepta el uso de cookies.
+        <br>
+        <button  class="btn text-info" (click)="ponerCookie();">OK</button>
+        <input type="button" routerLink="/legal/cookies" target="_blank" class="btn btn-warning info" value="Más información">
+    </div>
+</div>

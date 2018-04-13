@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-12 col-centered">
+      <button class="btn btn-info new btn-xs pull-right" routerLink="new" (click)="nuevo()">
+        Nuevo Mensaje
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+      <div class="col-lg-10 col-md-8 col-sm-8 col-centered ">
+        <div class="row ">
+            <h2 class="text-secondary"><u>Mis Mensajes</u></h2>
+
+          <table class="table ">
+            <th>Recibidos
+              <br> De:
+            </th>
+            <tr class="" *ngFor="let msg of receivedmsgs">
+              <td class="usr ">
+                {{msg.emitter}}
+              </td>
+              <td class="msg ">
+                <span class="" (click)="read(msg.id)" routerLink="read"> {{msg.message}} </span>
+                <div class="pull-right">
+                <button class="btn del btn-danger" (click)="del(msg.id)">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                <button (click)="read(msg.id)" routerLink="read" class="btn read btn-default btn-success">
+                  <span class="glyphicon glyphicon-folder-open"></span>
+                </button>
+              </div>
+              </td>
+            </tr>
+          </table>
+
+          <table class="table">
+            <th>Enviados
+              <br> Para:
+            </th>
+
+            <tr *ngFor="let msg of sentmsgs">
+              <td class="usr">
+                {{msg.receiver}}
+              </td>
+              <td class="msg">
+                <span class="" (click)="read(msg.id)" routerLink="read"> {{msg.message}} </span>
+                <div class="pull-right">
+                <button class="btn del btn-danger" (click)="del(msg.id)">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                <button (click)="read(msg.id)" routerLink="read" class="btn read btn-default btn-success">
+                  <span class="glyphicon glyphicon-folder-open"></span>
+                </button>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+#headerMain {
+  background-image: url("../img/larga.jpg") !important;
+  background-position-y: 10%;
+  background-size: auto;
+}
+h1,
+h3 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  -webkit-text-fill-color: black;
+}
+.nav li {
+  display: inline-block;
+  padding: 1%;
+}
+.nav2 li {
+  display: inline-block;
+  padding: 1%;
+}
+#menus {
+  padding-top: 7%;
+}
+#menus a {
+  color: black !important;
+}
+.icon-bar {
+  background-color: black !important;
+}
+#logo {
+  padding-bottom: 0px !important;
+}
+@media (max-width: 767px) {
+  #logo {
+    margin: 20px 0 20px;
+  }
+  #menus {
+    padding-top: 1% !important;
+  }
+}
+@media (max-width: 625px) {
+  #logo {
+    margin: 10px 0 20px;
+  }
+  #sublogo {
+    font-size: 21px !important;
+  }
+  #headerMain {
+    background-position-y: 40%;
+  }
+}
+@media (max-width: 318px) {
+  #logo {
+    margin: 0 0 20px;
+  }
+  #sublogo {
+    font-size: 19px !important;
+  }
+}
+#datos_perfil li {
+  list-style: none;
+}
+#caja {
+  border: 1px solid #DAFC19;
+  width: 100%;
+  height: 500px;
+}
+#actualizacion {
+  margin-top: 2%;
+}
+#contenido_perfil {
+  margin-top: 2%;
+}

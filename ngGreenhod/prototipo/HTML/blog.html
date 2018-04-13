@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../img/Favicon.png" />
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/robin.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap-theme.min.css">
+    <title>Blog</title>
+</head>
+
+<body>
+    
+    <div id="header"></div>
+
+    <div role="contenido" class="container-fluid">
+        <h2 class="titulo contenido"> BLOG <button class="btn btn-success" onclick="añadirBlog();"><span class="glyphicon glyphicon-plus"></span></button> </h2>
+        <p class="texto">Bienvenid@ a nuestro blog, junt@s aprenderemos a ECO-NECTAR </p>
+        <div id ="listado" >
+        </div>
+        <div class="modal fade" id="modalBlog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title text-center" id="loginLabel">Nueva Entrada</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="frmBlog" class="form-horizontal" >
+                            <input type="hidden" name="id" id="id" value="0">
+                            <div class="form-group">
+                                <label class="col-xs-12  col-sm-4 col-lg-3">Titulo</label>
+                                <div class="col-xs-12 col-sm-8">
+                                    <input class="form-control" value="" type="text" name="titulo" id="titulo" required>
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <label class="col-xs-12 col-sm-4 col-lg-3">resumen</label>
+                                <div class="col-xs-12 col-sm-8">
+                                    <textarea class="form-control" name="resumen" rows="3" id="resumen"></textarea>
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <label class="col-xs-12 col-sm-4 col-lg-3">texto</label>
+                                <div class="col-xs-12 col-sm-8">
+                                    <textarea class="form-control" name="texto" rows="10" id="texto"></textarea>
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <label class="col-xs-12 col-sm-4 col-lg-3">foto</label>
+                                <div class="col-xs-12 col-sm-8">
+                                    <input class="form-control" type="text" name="foto" id="foto">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group" role="group">
+                            <button class="btn" type="button" id="btnEnviarBlog">Enviar</button>
+                            <button class="btn" type="button" data-dismiss="modal" id="btnVolverBlog" >Volver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <footer class="footer">
+            <span id="copyright">© Greenhood 2018</span>
+            <a href="cookies.html">Pol&iacute;tica de cookies</a>
+            <a href="legalizacion.html">Aviso legal</a>
+            <a href="mapasitio.html">Accesibilidad</a>
+        </footer>
+    </div>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/blog.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#header').load("headerNew.html");
+        });
+    </script>
+</body>
+
+</html>

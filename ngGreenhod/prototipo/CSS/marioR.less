@@ -1,0 +1,92 @@
+// .jumbotron {
+//     background-color: rgba(52, 143, 60, 0.671)
+// }
+
+// #paginauno {
+//     position: absolute;
+//     // top: 20%;
+//     height: 100%;
+// }
+
+#mapa {
+    border-radius: 10px;
+}
+@media only screen and (min-width: 1200px) {
+    #funciona{
+        margin-top: 10%!important;
+    }
+    
+  
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+    #funciona{
+        margin-top: 10%!important;
+    }
+   
+ 
+}
+// //@media only screen and (min-width: 400px) and (max-width: 768px) {
+//     #paginados {
+//         position: absolute;
+//         bottom: -30%!important;
+//         width: 100%;
+//         height: 100%;
+//     }
+//     #foot {
+//         position: absolute;
+//         top: 230%;
+//     }
+// }
+// @media only screen and (max-width: 400px) {
+//     #paginados {
+//         position: absolute;
+//         top: 230%!important;
+//         width: 100%;
+//         height: 100%;
+//     }
+//     #foot {
+//         position: absolute;
+//         bottom: -240%;
+//     }
+// }
+
+
+#arrowdown{
+    transition: all 12s linear;
+
+}
+#barraaceptacion {
+    display: block;
+    height: 3em;
+    background-color: rgba(73, 73, 73, 0.271);
+    z-index: 10000;
+    transition: all 2s linear;
+    text-align: center;
+}
+
+
+@iterations: 12;
+.vertical-offset-top-loop (@i) when (@i> 0) {
+    .vert-offset-top-@{i} {
+        margin-top:~"@{i}em";
+    }
+    .vertical-offset-top-loop(@i - 1);
+}
+
+.vertical-offset-top-loop(@iterations);
+.vertical-offset-bottom-loop(@i) when (@i> 0) {
+    .vert-offset-bottom-@{i} {
+        margin-bottom:~"@{i}em";
+    }
+    .vertical-offset-bottom-loop(@i - 1);
+}
+
+.vertical-offset-bottom-loop(@iterations);
+#arrowdown {
+    filter: opacity(0.3);
+}
+
+label {
+    font-weight: bold;
+    font-size: 14px;
+}

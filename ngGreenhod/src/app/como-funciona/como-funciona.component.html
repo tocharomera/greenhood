@@ -1,0 +1,52 @@
+<div class="container-fluid" id="comofunciona" role="main" aria-label="contenido">
+  <div id="c-filtro_home" class="container-fluid" role="filter" aria-label="filtro">
+    <div class="row">
+      <div id="filtro" class="container-fluid  ">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 vert-offset-top-6">
+          <h2 class="ecof">ECOfiltra los productos que estés buscando</h2>
+          <div class="row">
+            <form class="formulario form " role="form" id="filtro_index" #f="ngForm" novalidate>
+
+              <div class="container col-lg-8 col-md-8 col-sm-11 ">
+                <input type="text" class="form-control" id="busqueda" name="busqueda" [(ngModel)]="busqueda" placeholder="¿Qué producto buscas?">
+              </div>
+              <div class="container-fluid botones_filtro vert-offset-top-7">
+                <!-- <input class="btn btn-primary" type="submit" value="Filtrar" routerLink="buscarproductos"> -->
+                <button id="template" [routerLink]="['/buscar_productos', busqueda]" role="buscar productos" type="btn-primary" class="btn btn-primary">Filtrar</button>
+                <!-- <button class="btn btn-primary">Avanzado</button> -->
+              </div>
+
+            </form>
+            <div class=" col-lg-6 col-md-6 col-sm-10 col-xs-12 col-of col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-12">
+              <img  id="imgindex" src="assets/img/basket-food-natural-35059.png" alt="">
+            </div>
+          </div>
+
+        </div>
+        <div id="funciona" class="container  col-lg-6 col-sm-6 col-xs-12  ">
+          <h2>¿Cómo funciona?</h2>
+          <br>
+          <div class="text-justify">
+            GREENHOOD, te ayudará de forma rápida y eficaz en los resultados de búsqueda de frutas y verduras proporcionandote herramientas
+            como la localización en mapa,para saber que productores se ubican proximos a ti.
+            <div id="efec">
+              <!-- <div id="flip" class="btn btn-link">Leer más...</div> -->
+              <div id="panel">Además de una búsqueda con filtros para detallar tu necesidad y si tienes ganas de saber que frutas o verduras
+                están en temporada, en GREENHOOD a través de su mapa de frutas y verduras de temporada podrás enterarte de que productos
+                están listos para su compra. En GREENHOOD promovemos la ecologia mediante está plataforma, ayudando a quien
+                produce frutas o verduras y pueda anunciarlas aquí para otros, y no solo eso, si no también compartir el
+                proceso, cuidado y mantenimiento del producto. Por otro lado si en GREENHOOD, no cumples la función de productor,
+                como consumidor, aparte de comprar, puedes seguir a tus productores favoritos y ver mas de cerca todo el
+                trabajo que realizan para ofrecer un producto limpio y ecologico. El equipo de GREENHOOD te desea una buena
+                ECO-experiencia y ECO-disfrutalo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>

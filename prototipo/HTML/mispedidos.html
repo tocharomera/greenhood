@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Mis Pedidos</title>
+</head>
+
+<body>
+    
+    <div id="header"></div>
+    <div class="container-fluid" id="content">
+        <h2 class="text-center">Mis Pedidos
+            <small>Estas son las compras que has realizado</small>
+        </h2>
+     
+        <div id="tablaPedidosC" class="center-block">
+            <table class=" table table-striped table-hover">
+            <tr>
+                <th itemprop="name">PRODUCTO</th>
+                <th itemprop="propertyID">PRODUCTOR</th>
+                <th itemprop="releaseDate">FECHA</th>
+                <th itemprop="price">IMPORTE</th>
+                <th itemprop="orderStatus">ESTADO</th>
+            </tr>
+            <tr itemscope itemtype="http://www.schema.org/Product">
+                <td itemprop="name">Fresas</td>
+                <td itemprop="propertyID">Robin</td>
+                <td itemprop="releaseDate">19/03/2017</td>
+                <td itemprop="price">4€</td>
+                <td itemprop="orderStatus">Entregado</td>
+            </tr>
+            <tr itemscope itemtype="http://www.schema.org/Product">
+                <td itemprop="name">Limones</td>
+                <td itemprop="propertyID">Mario</td>
+                <td itemprop="releaseDate">12/03/2017</td>
+                <td itemprop="price">2€</td>
+                <td itemprop="orderStatus">En proceso</td>
+                </tr>
+            </table>
+            </div>
+                    .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+                </td>
+            </tr>
+        </table>
+        </div>
+    </div>
+    <footer class="footer">
+            <span  id="copyright" itemscope itemtype="http://schema.org/Organization">© Greenhood 2018</span>
+            <a itemprop="" href="cookies.html">Pol&iacute;tica de cookies</a>
+            <a itemprop="publishingPrinciples" href="legalizacion.html">Aviso legal</a>
+            <a href="mapasitio.html">Accesibilidad</a>
+        </footer>
+        
+        <script src="../vendor/jquery/jquery.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.js"></script>
+        <script src="../js/mispedidosC.js"></script>
+        <script>$(document).ready(function () {
+                $('#header').load("headernew.html");
+            });</script>
+</body>
+
+</html>

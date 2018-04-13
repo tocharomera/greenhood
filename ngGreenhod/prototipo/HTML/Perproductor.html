@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../img/Favicon.png" />
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap-theme.min.css">
+    <!-- <link rel="stylesheet" href="../CSS/robin.css"> -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../js/comun.js"></script>
+    <title>Perfil Productor</title>
+</head>
+
+<body>
+
+    <div id="header"></div>
+    <div role="contenido" class="container-fluid" itemscope itemtype="http://schema.org/Person">
+        <div id="contenido_perfil" class="row">
+            <div class="col-sm-12 col-md-3 col-md-offset-1 sidenav text-center">
+                <h2 class="text-center">MI PERFIL</h2>
+                <p> Seguidores:129</p>
+                <div id="fichaProductor" class="datos">
+                    <!-- aqui estaba mi listado -->
+                    <!-- ahora es la template que está abajo del todo -->
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="col-sm-12 col-md-8">
+                    <div class="text-center">
+                        <h4>Actualizaciones:</h4>
+                        <p>Sube imagenes y vídeos para que tus seguidores vean tus progresos:</p>
+                    </div>
+                    <div class="row col-sm-12 col-md-8 col-md-offset-2">
+                        <div id="caja"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- fin row -->
+
+        <form id="actual" class="col-sm-12 col-md-8 col-md-offset-5">
+            <div class="form-group">
+                <label for="texto_actualizacion">Introduce un texto</label>
+                <textarea class="form-control" rows="3" name="texto_actualizacion" id="texto_actualizacion"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+            <button>Enviar</button>
+        </form>
+
+
+        <footer class="footer">
+            <span id="copyright" itemscope itemtype="http://schema.org/Organization">© Greenhood 2018</span>
+            <a itemprop="" href="cookies.html">Pol&iacute;tica de cookies</a>
+            <a itemprop="publishingPrinciples" href="legalizacion.html">Aviso legal</a>
+            <a href="mapasitio.html">Accesibilidad</a>
+        </footer>
+    </div>
+
+
+    <!--MODAL EDITAR-->
+    <div class="modal fade" id="modalEditarProd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title text-center" id="loginLabel">Edita tus datos de usuario.</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="modalEditarProductor" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-xs-12  col-sm-4 col-lg-3">Nombre</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-control" value="" type="text" name="nombre" id="nombreE" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-lg-3">Apellidos</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-control" type="text" name="apellidos" id="prodApellidosE">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-lg-3">Email</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-control" type="email" name="email" id="prodEmailE">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-lg-3">Pais</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-control" type="text" name="pais" id="prodPaisE">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-lg-3">Ciudad</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-control" type="text" name="ciudad" id="prodCiudadE">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-lg-3">Calle</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-control" type="text" name="calle" id="prodDireccionE">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-lg-3">Número</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-control" type="number" name="numero" id="prodNumeroE">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-lg-3">Piso</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-control" type="number" name="piso" id="prodPisoE">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-lg-3">Letra</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-control" type="text" name="letra" id="prodLetraE">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-lg-3">Código Postal</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-control" type="number" name="cp" id="prodCPE">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-check-label col-xs-12 col-sm-4 col-lg-3" for="productor">Productor</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-check-input" value="true" type="checkbox" name="productor" id="productor">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-check-label col-xs-12 col-sm-4 col-lg-3" for="comprador">Comprador</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-check-input" value="true" type="checkbox" name="comprador" id="comprador">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group" role="group">
+                        <button class="btn" type="button" id="btnEnviarEditProd" onclick="enviarProdModif()">Enviar</button>
+                        <button class="btn" type="button" data-dismiss="modal" id="btnVolverEditProd">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FIN MODAL-->
+
+
+    <!-- MODAL CONTRASEÑA -->
+    <div class="modal fade" id="modalEditarPass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title text-center" id="passLabel">Edita tu contraseña.</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="modalEditarPassword" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-xs-12  col-sm-4 col-lg-3">Password</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-control" value="" type="text" name="prodContraseña" id="prodContraseña" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-12  col-sm-4 col-lg-3">Repite la Password</label>
+                            <div class="col-xs-12 col-sm-4">
+                                <input class="form-control" value="" type="text" name="prodContraseñaR" id="prodContraseñaR" required>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group" role="group">
+                        <button class="btn" type="button" id="btnEnviarPass">Enviar</button>
+                        <button class="btn" type="button" data-dismiss="modal" id="btnVolverPass">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODAL CONTRASEÑA -->
+
+    <script type="x-tmpl-mustache" id="prodTemplate">
+
+            <ul id="datos_perfil">
+                    <label for="prodNombre">Nombre</label>
+                    <li id="prodNombre">{{nombre}}</li>
+                    <label for="pordApellidos">Apellidos</label>
+                    <li>{{apellidos}}</li>
+                    <label for="prodEmail">Email</label>
+                    <li>{{email}}</li>
+                    <label for="prodPais">País</label>
+                    <li>{{pais}}</li>
+                    <label for="prodCiudad">Ciudad</label>
+                    <li>{{ciudad}}</li>
+                    <label for="prodDireccion">Dirección</label>
+                    <li>{{calle}}</li>
+                    <div class="piso" id="pformulario">
+                        <label for="prodNumero">Número</label>
+                        <li>{{numero}}</li>
+                        <label for="prodPiso">Piso</label>
+                        <li>{{piso}}</li>
+                        <label for="prodLetra">Letra</label>
+                        <li>{{letra}}</li>
+                        <label for="prodCP">Código Postal</label>
+                        <li>{{cp}}</li>
+                    </div>
+                </ul>
+                <div>
+                    <button class="boton" onclick="editarProductor()">Editar</button>
+                    <button class="boton" onclick="editaPass()">Cambiar contraseña</button>
+                    <button class="boton">Eliminar cuenta</button>
+                </div>
+
+    </script>
+
+
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/Perproductor.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#header').load("headerNew.html");
+        });
+    </script>
+
+</body>
+
+</html>

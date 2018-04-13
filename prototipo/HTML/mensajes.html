@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../CSS/style.css"> 
+    <title>MENSAJES</title>
+</head>
+
+<body>
+    
+    <div id="header"></div>
+
+    <div class="contenido">
+        <h2>MENSAJES</h2>
+        <ul id="menumensajes">
+            <img src="../img/inbox.png" alt="inbox">
+            <li>BANDEJA DE ENTRADA</li>
+            <img src="../img/new.png" alt="new" width="30" height="30">
+            <li>NUEVO</li>
+            <img src="../img/trash.png" alt="trash">
+            <li>ELIMINADOS</li>
+        </ul>
+        <table class="mtabla">
+            <tr>
+                <th>
+                    <img src="../img/user.png" alt="" width="30" height="30">
+                </th>
+                <th>USUARIO</th>
+                <th>MENSAJE</th>
+                <th>
+                   
+                </th>
+                <th>
+                   
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <img src="../img/user.png" alt="" width="30" height="30">
+                </th>
+                <th>MARIO</th>
+                <th>Vamos a comer manzanas</th>
+                <th>
+                    <button class="boton" id="leer">LEER</button>
+                </th>
+                <th>
+                    <button class="boton" id="eliminar">ELIMINAR</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <footer class="footer">
+        <span id="copyright" itemscope itemtype="http://schema.org/Organization">© Greenhood 2018</span>
+        <a itemprop="" href="cookies.html">Pol&iacute;tica de cookies</a>
+        <a itemprop="publishingPrinciples" href="legalizacion.html">Aviso legal</a>
+        <a href="mapasitio.html">Accesibilidad</a>
+    </footer>
+
+    <script id="templateMensajes" type="x-tmpl-mustache">
+        <table class="table table-striped table-hover">
+            <tr class="info">
+                <th>Producto</th><br>
+                <th>Cantidad/kg</th>
+                <th>Fecha</th>
+                <th>Precio €/kg</th>
+                <th><input type="button" class= "btn btn-primary" value="Añadir Producto" onclick="añadir()"></th>
+            </tr>
+        </table>
+
+    </script>
+
+
+
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#header').load("headerNew.html");
+        });
+    </script>
+</body>
+
+</html>
